@@ -1,87 +1,170 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <img src="" alt="">
-    <h2>How to use</h2>
-    <ol>
-      <li>중앙대포탈</li>
-      <li>빈 칸에 수강학점을 정확히 입력하세요!</li>
-      <li>결과 확인 후 학과 사무실에 연락하세요!</li>
-    </ol>
-    <table border="solid">
-      <caption>기본정보</caption>
-      <tr>
-        <th>입학연도</th>
-        <th>다전공</th>
-      </tr>
-      <tr>
-        <td>2021</td>
-        <td>전공심화</td>
-      </tr>
-    </table>
+
+<head>
+  <meta charset="utf-8">
+  <title>CAU_CHECKLIST</title>
+</head>
+
+<body>
+  <img src="" alt="">
+  <h1>중앙대 심리학과<br>졸업체크리스트</h1>
+  <h2>How to use</h2>
+  <ol>
+    <li><a href='https://mportal.cau.ac.kr/main.do' target="_blank" title="중앙대학교 포탈이동">중앙대포탈</a></li>
+    <li>수강학점을 정확히 입력하세요</li>
+    <li>확인 후 학과사무실에 연락하세요</li>
+  </ol>
+  <table border="solid">
+    <caption>기본정보</caption><button>Ver.</button>
+    <tr>
+      <th>입학연도</th>
+      <th>다전공</th>
+    </tr>
+    <tr>
+      <td>
+        <select class="">
+          <option value="">--</option>
+          <option value="2019">2019</option>
+          <option value="2020">2020</option>
+          <option value="2021">2021</option>
+        </select>
+      </td>
+      <td>
+        <select class="">
+          <option value="">--</option>
+          <option value="">전공심화</option>
+          <option value="">복수전공</option>
+          <option value="">연계전공</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table border="solid">
+    <caption>교양영역</caption><button>세부기준</button>
+    <tr>
+      <th colspan="2">이수구분</th>
+      <th>최소학점</th>
+      <th>최대학점</th>
+      <th colspan="2">이수학점</th>
+    </tr>
+    <tr>
+      <th rowspan="3">공통교양</th>
+      <th>국어</th>
+      <td>
+        <input type="text" name="" value="2" readonly>
+      </td>
+      <td>
+        <input type="text" name="" value="2" readonly>
+      </td>
+      <td colspan="2">
+        <select class="" name="" id="kor-credit">
+          <option value="0">0</option>
+          <option value="2">2</option>
+        </select>
+        <label for="kor-credit">학점</label>
+      </td>
+    </tr>
+    <tr>
+      <th>영어</th>
+      <td>
+        <input type="text" name="" value="2" readonly>
+      </td>
+      <td>
+        <input type="text" name="" value="2" readonly>
+      </td>
+      <td colspan="2">
+        <select class="" name="" id="eng-credit">
+          <option value="0">0</option>
+          <option value="2">2</option>
+        </select>
+        <label for="eng-credit">학점</label>
+        <input type="checkbox" id="eng-check"><label for="eng-check">면제</label>
+      </td>
+    </tr>
+    <tr>
+      <th>기타</th>
+      <td>
+        <input type="text" name="" value="10" readonly>
+      </td>
+      <td>
+        <input type="text" name="" value="10" readonly>
+      </td>
+      <td colspan="2">
+        <select class="" name="" id="etc-credit">
+          <option value="0">0</option>
+          <option value="2">2</option>
+          <option value="4">4</option>
+          <option value="6">6</option>
+          <option value="8">8</option>
+          <option value="10">10</option>
+        </select>
+        <label for="etc-credit">학점</label>
+    </tr>
+    <tr>
+      <th colspan="2" rowspan="5">핵심교양</th>
+      <td rowspan="5">
+        <input type="text" name="" value="14" readonly>
+      </td>
+      <td rowspan="5"></td>
+      <td>
+        <input type="checkbox" id="core1" value=""><label for="core1">도전</label>
+      </td>
+      <td rowspan="5">
+        <input type="number" id="core" value=""><label for="core">학점</label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" id="core2" value=""><label for="core2">창의</label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" id="core3" value=""><label for="core3">융합</label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" id="core4" value=""><label for="core4">신뢰</label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" id="core5" value=""><label for="core5">소통</label>
+      </td>
+    </tr>
+    <tr>
+      <th colspan="2">선택교양</th>
+      <td>
+        <input type="text" name="" value="0" readonly>
+      </td>
+      <td></td>
+      <td colspan="2"><input type="number" id="choice" value=""><label for="choice">학점</label></td>
+    </tr>
+    <tr>
+      <th colspan="2">합계</th>
+      <td>
+        <input type="text" name="" value="28" readonly>
+      </td>
+      <td>
+        <input type="text" name="" value="45" readonly>
+      </td>
+      <td colspan="2">
+        <input type="text" id="sum" value="" readonly><label for="sum">학점</label>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <input type="reset" name="" value="reset">
+  <input type="button" name="" value="check">
+  <br><br>
+  <a href="tel:02-820-6633">
+    <span>교양대학</span>
     <br>
-    <table border="solid">
-      <caption>교양영역</caption>
-      <tr>
-        <th colspan="2">이수구분</th>
-        <th>최소학점</th>
-        <th>최대학점</th>
-        <th colspan="2">이수학점</th>
-      </tr>
-      <tr>
-        <th rowspan="3">공통교양</th>
-        <th>국어</th>
-        <td>국어최소</td>
-        <td>국어최대</td>
-        <td colspan="2">국어학점</td>
-      </tr>
-      <tr>
-        <th>영어</th>
-        <td>영어최소</td>
-        <td>영어최대</td>
-        <td colspan="2">영어학점</td>
-      </tr>
-      <tr>
-        <th>기타</th>
-        <td>기타최소</td>
-        <td>기타최대</td>
-        <td colspan="2">기타학점</td>
-      </tr>
-      <tr>
-        <th colspan="2" rowspan="5">핵심교양</th>
-        <td rowspan="5">핵심최소</td>
-        <td rowspan="5">핵심최대</td>
-        <td>도전</td>
-        <td rowspan="5">핵심학점</td>
-      </tr>
-      <tr>
-        <td>창의</td>
-      </tr>
-      <tr>
-        <td>융합</td>
-      </tr>
-      <tr>
-        <td>신뢰</td>
-      </tr>
-      <tr>
-        <td>소통</td>
-      </tr>
-      <tr>
-        <th colspan="2">선택교양</th>
-        <td>선택최소</td>
-        <td>선택최대</td>
-        <td colspan="2">선택학점</td>
-      </tr>
-      <tr>
-        <th colspan="2">교양합계</th>
-        <td>교양최소</td>
-        <td>교양최대</td>
-        <td colspan="2">합계</td>
-      </tr>
-    </table>
-  </body>
+    <span>02-820-6633</span>
+  </a>
+</body>
+
 </html>
