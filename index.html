@@ -4,26 +4,113 @@
 <head>
   <meta charset="utf-8">
   <title>CHECKLIST</title>
+  <style>
+    body {
+      background-color: rgb(33, 85, 164);
+      color: white;
+      margin-left: 20%;
+      margin-right: 20%;
+    }
+
+    .header {
+      text-align: center;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    h1 {
+      font-size: 25px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    ol li {
+      list-style: none;
+      font-size: 15px;
+    }
+
+    img {
+      width:100px;
+    }
+
+    .cap-logo {
+      width:20px;
+    }
+
+    caption {
+      text-align: left;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th {
+      border-color: white;
+    }
+
+    td {
+      background-color: white;
+      color: black;
+      text-align: center;
+    }
+
+    input[type=text] {
+      text-align: center;
+      width: 40px;
+      border: none;
+      color: blue;
+    }
+
+    input[type=number] {
+      text-align: center;
+      width: 50px;
+      color:red;
+    }
+
+    select {
+      width: 50px;
+      text-align-last: center;
+      color: red;
+    }
+
+    .info-select {
+      width: 100px;
+      color: black;
+    }
+
+    .btns, .call {
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
-  <img src="" alt="">
-  <h1>심리학과 졸업 체크리스트</h1>
-  <h2>How to use</h2>
-  <ol>
-    <li><a href="https://mportal.cau.ac.kr/main.do" target="_blank">중앙대포탈</a> - 강의마당 - 졸업관련 성적조회</li>
-    <li>빈 칸에 수강학점을 정확히 입력하세요!</li>
-    <li>결과 확인 후 학과 사무실에 연락하세요!</li>
-  </ol>
+  <div class="header">
+    <img src="logo.png" alt="">
+    <h1>심리학과 졸업 체크리스트</h1>
+    <h2>How to use</h2>
+    <ol>
+      <li><a href="https://mportal.cau.ac.kr/main.do" target="_blank" title="중앙대포탈바로가기"><u>중앙대포탈</u></a> - 강의마당 - 졸업관련 성적조회</li>
+      <li>빈 칸에 수강학점을 정확히 입력하세요!</li>
+      <li>결과 확인 후 학과 사무실에 연락하세요!</li>
+    </ol>
+  </div>
   <table border="solid">
-    <caption>기본정보</caption>
+    <caption><img src="logo.png" alt="" class="cap-logo"> 기본정보</caption>
     <tr>
-      <th>입학연도</th>
+      <th width="50%">입학연도</th>
       <th>다전공</th>
     </tr>
     <tr>
       <td>
-        <select class="">
+        <select class="info-select">
           <option value="">--</option>
           <option value="2018">2018</option>
           <option value="2019">2019</option>
@@ -32,7 +119,7 @@
         </select>
       </td>
       <td>
-        <select class="">
+        <select class="info-select">
           <option value="">--</option>
           <option value="">전공심화</option>
           <option value="">복수전공</option>
@@ -43,7 +130,7 @@
   </table>
   <br>
   <table border="solid">
-    <caption>교양영역</caption>
+    <caption><img src="logo.png" alt="" class="cap-logo"> 교양영역</caption>
     <tr>
       <th colspan="2">이수구분</th>
       <th>최소학점</th>
@@ -110,7 +197,7 @@
       <td>
         <input type="checkbox" value="" id="core1"><label for="core1">도전</label></td>
       <td rowspan="5">
-        <input type="number" value="" id="core"><label for="core"> 학점</label>
+        <input type="number" value="" id="core" placeholder="0" min="0"><label for="core"> 학점</label>
       </td>
     </tr>
     <tr>
@@ -130,7 +217,7 @@
       <td><input type="text" value="0" readonly></td>
       <td></td>
       <td colspan="2">
-        <input type="number" value="" id="choice"><label for="choice"> 학점</label>
+        <input type="number" value="" id="choice" placeholder="0" min="0"><label for="choice"> 학점</label>
       </td>
     </tr>
     <tr>
@@ -142,20 +229,24 @@
         <input type="text" value="45" readonly>
       </td>
       <td colspan="2">
-        <input type="text" name="" value="" id="sum" readonly><label for="sum"> 학점</label>
+        <input type="text" id="sum" value="0" readonly><label for="sum"> 학점</label>
       </td>
     </tr>
   </table>
   <br>
-  <input type="reset" name="" value="RESET">
-  <input type="button" name="" value="CHECK">
+  <div class="btns">
+    <input type="reset" name="" value="RESET">
+    <input type="button" name="" value="CHECK">
+  </div>
   <br>
   <br>
-  <a href="tel:02-820-6639"><span>교양대학<br>02-820-6639/6633</span></a>
+  <div class="call">
+    <a href="tel:02-820-6639"><span>교양대학<br>02-820-6639/6633</span></a>
+  </div>
   <br>
   <br>
   <table border="solid">
-    <caption>전공영역</caption>
+    <caption><img src="logo.png" alt="" class="cap-logo"> 전공영역</caption>
     <tr>
       <th>이수구분</th>
       <th>최소학점</th>
@@ -163,86 +254,113 @@
     </tr>
     <tr>
       <th>전공기초</th>
-      <td>전공기초최소학점</td>
+      <td>
+        <input type="text" value="10" readonly>
+      </td>
       <td colspan="3">
-        <input type="number" value="">
+        <input type="number" value="" id="base" placeholder="0" min="0"><label for="base"> 학점</label>
       </td>
     </tr>
     <tr>
       <th>전공필수</th>
-      <td>전공필수최소학점</td>
+      <td>
+        <input type="text" value="9" readonly>
+      </td>
       <td colspan="3">
-        <input type="number" value="">
+        <input type="number" value="" id="nece" placeholder="0" min="0"><label for="nece"> 학점</label>
       </td>
     </tr>
     <tr>
       <th>전공</th>
-      <td>전공최소학점</td>
+      <td>
+        <input type="text" value="66" readonly><br>
+        <span>(전필포함)</span>
+      </td>
       <td colspan="3">
-        <input type="number" value="">
+        <input type="number" value="" id="major" placeholder="0" min="0"><label for="major"> 학점</label>
       </td>
     </tr>
     <tr>
       <th>복수전공</th>
-      <td>복수전공최소학점</td>
+      <td>
+        <input type="text" value="45" readonly>
+      </td>
       <td colspan="3">
-        <input type="number" value="">
+        <input type="number" value="" id="double" placeholder="0" min="0"><label for="double"> 학점</label>
+        <br>
         <input type="checkbox" value="" id="double-none"><label for="double-none"> 해당없음</label>
       </td>
     </tr>
     <tr>
       <th>설계전공</th>
-      <td>설계전공최소학점</td>
       <td>
-        <input type="number" value="">
+        <input type="text" value="36" readonly>
+      </td>
+      <td>
+        <input type="number" value="" id="plan" placeholder="0" min="0"><label for="plan"> 학점</label>
+        <br>
         <input type="checkbox" value="" id="plan-none"><label for="plan-none"> 해당없음</label>
       </td>
       <th>교차인정</th>
       <td>
-        <input type="number" value="">
+        <input type="number" value="" id="plan-cross" placeholder="0" min="0" max="6"><label for="plan-cross"> 학점</label>
       </td>
     </tr>
     <tr>
       <th>부전공</th>
-      <td>부전공최소학점</td>
+      <td>
+        <input type="text" value="21" readonly>
+      </td>
       <td colspan="3">
-        <input type="number" value="">
+        <input type="number" value="" id="minor" placeholder="0" min="0"><label for="minor"> 학점</label>
+        <br>
         <input type="checkbox" value="" id="minor-none"><label for="minor-none"> 해당없음</label>
       </td>
     </tr>
     <tr>
       <th>자유선택</th>
-      <td>자유선택최소학점</td>
+      <td>
+        <input type="text" value="0" readonly>
+      </td>
       <td colspan="3">
-        <input type="number" value="">
+        <input type="number" value="" id="free" placeholder="0" min="0"><label for="free"> 학점</label>
       </td>
     </tr>
     <tr>
       <th>교직</th>
-      <td>교직최소학점</td>
+      <td>
+        <input type="text" value="21" readonly>
+      </td>
       <td colspan="3">
-        <input type="number" value="">
+        <input type="number" value="" id="teach" placeholder="0" min="0"><label for="teach"> 학점</label>
+        <br>
         <input type="checkbox" value="" id="teach-none"><label for="teach-none"> 해당없음</label>
       </td>
     </tr>
     <tr>
       <th>총 이수학점</th>
-      <td>최소학점</td>
+      <td>
+        <input type="text" value="132" readonly>
+      </td>
       <td colspan="3">
-        <input type="text" name="" value="">
+        <input type="text" id="total" value="0" readonly><label for="total"> 학점</label>
       </td>
     </tr>
   </table>
   <br>
-  <input type="reset" name="" value="RESET">
-  <input type="button" name="" value="CHECK">
+  <div class="btns">
+    <input type="reset" name="" value="RESET">
+    <input type="button" name="" value="CHECK">
+  </div>
   <br>
   <br>
-  <a href="tel:02-820-5124"><span>심리학과<br>02-820-5124</span></a>
+  <div class="call">
+    <a href="tel:02-820-5124"><span>심리학과<br>02-820-5124</span></a>
+  </div>
   <br>
   <br>
   <table border="solid">
-    <caption>기타 졸업요건</caption>
+    <caption><img src="logo.png" alt="" class="cap-logo"> 기타 졸업요건</caption>
     <tr>
       <th colspan="2">구분</th>
       <th>통과 여부</th>
@@ -251,41 +369,43 @@
     <tr>
       <th rowspan="3">졸업인정제</th>
       <th>영어</th>
-      <td><input type="checkbox" value="">통과/면제</td>
+      <td><input type="checkbox" value="" id="eng"><label for="eng">통과/면제</label></td>
       <td>영어기준</td>
     </tr>
     <tr>
       <th>한자</th>
-      <td><input type="checkbox" value="">통과/면제</td>
+      <td><input type="checkbox" value="" id="chi"><label for="chi">통과/면제</label></td>
       <td>한자기준</td>
     </tr>
     <tr>
       <th>한국어</th>
-      <td><input type="checkbox" value="">통과/면제</td>
+      <td><input type="checkbox" value="" id="kor"><label for="kor">통과/면제</label></td>
       <td>한국어 기준</td>
     </tr>
     <tr>
       <th rowspan="2">졸업논문</th>
       <th>주전공</th>
-      <td><input type="checkbox" value="">통과</td>
+      <td><input type="checkbox" value="" id="paper"><label for="paper">통과</label></td>
       <td>논문기준</td>
     </tr>
     <tr>
       <th>복수전공</th>
-      <td><input type="checkbox" value="">통과/해당없음</td>
+      <td><input type="checkbox" value="" id="double-paper"><label for="double-paper">통과/해당없음</label></td>
       <td></td>
     </tr>
     <tr>
       <th colspan="2">전 학년 평점</th>
       <td>
-        <input type="number" value="" id="gpa"><label for="gpa">/4.5</label>
+        <input type="number" value="" id="gpa" placeholder="0.00" min="0" max="4.5" step="0.01"><label for="gpa">/4.5</label>
       </td>
       <td>평점기준</td>
     </tr>
   </table>
   <br>
-  <input type="reset" name="" value="RESET">
-  <input type="button" name="" value="CHECK">
+  <div class="btns">
+    <input type="reset" name="" value="RESET">
+    <input type="button" name="" value="CHECK">
+  </div>
 </body>
 
 </html>
