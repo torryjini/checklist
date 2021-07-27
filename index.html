@@ -4,91 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>CHECKLIST</title>
-  <style>
-    body {
-      background-color: rgb(33, 85, 164);
-      color: white;
-      margin-left: 20%;
-      margin-right: 20%;
-    }
-
-    .header {
-      text-align: center;
-    }
-
-    a {
-      color: white;
-      text-decoration: none;
-    }
-
-    h1 {
-      font-size: 25px;
-    }
-
-    h2 {
-      font-size: 20px;
-    }
-
-    ol li {
-      list-style: none;
-      font-size: 15px;
-    }
-
-    img {
-      width:100px;
-    }
-
-    .cap-logo {
-      width:20px;
-    }
-
-    caption {
-      text-align: left;
-    }
-
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    th {
-      border-color: white;
-    }
-
-    td {
-      background-color: white;
-      color: black;
-      text-align: center;
-    }
-
-    input[type=text] {
-      text-align: center;
-      width: 40px;
-      border: none;
-      color: blue;
-    }
-
-    input[type=number] {
-      text-align: center;
-      width: 50px;
-      color:red;
-    }
-
-    select {
-      width: 50px;
-      text-align-last: center;
-      color: red;
-    }
-
-    .info-select {
-      width: 100px;
-      color: black;
-    }
-
-    .btns, .call {
-      text-align: center;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -195,7 +111,8 @@
       </td>
       <td rowspan="5"></td>
       <td>
-        <input type="checkbox" value="" id="core1"><label for="core1">도전</label></td>
+        <input type="checkbox" value="" id="core1"><label for="core1">도전</label>
+      </td>
       <td rowspan="5">
         <input type="number" value="" id="core" placeholder="0" min="0"><label for="core"> 학점</label>
       </td>
@@ -229,7 +146,7 @@
         <input type="text" value="45" readonly>
       </td>
       <td colspan="2">
-        <input type="text" id="sum" value="0" readonly><label for="sum"> 학점</label>
+        <input type="text" id="sum" value="0" style="color:red;" readonly><label for="sum"> 학점</label>
       </td>
     </tr>
   </table>
@@ -301,7 +218,7 @@
         <br>
         <input type="checkbox" value="" id="plan-none"><label for="plan-none"> 해당없음</label>
       </td>
-      <th>교차인정</th>
+      <th>교차<br>인정</th>
       <td>
         <input type="number" value="" id="plan-cross" placeholder="0" min="0" max="6"><label for="plan-cross"> 학점</label>
       </td>
@@ -343,11 +260,12 @@
         <input type="text" value="132" readonly>
       </td>
       <td colspan="3">
-        <input type="text" id="total" value="0" readonly><label for="total"> 학점</label>
+        <input type="text" id="total" value="0" style="color:red;" readonly><label for="total"> 학점</label>
       </td>
     </tr>
   </table>
   <br>
+  <p>체크리스트 사용 후 정확한 졸업사정 결과를 확인하기 위해 반드시 아래 번호로 학과에 연락하여 확인하시기 바랍니다!</p>
   <div class="btns">
     <input type="reset" name="" value="RESET">
     <input type="button" name="" value="CHECK">

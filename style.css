@@ -1,0 +1,155 @@
+body {
+  background-color: rgb(33, 85, 164);
+  color: white;
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin: 0.8rem 0;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+ol {
+  list-style: none;
+  font-size: 15px;
+  padding-left: 0;
+}
+
+img {
+  width: 100px;
+}
+
+.cap-logo {
+  width: 1.7rem;
+}
+
+caption {
+  text-align: left;
+  margin-bottom: 5px;
+  font-size: 1.5rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  border-color: white;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+}
+
+td {
+  background-color: white;
+  color: black;
+}
+
+input[type=text] {
+  text-align: center;
+  width: 60px;
+  height: 30px;
+  border: none;
+  color: blue;
+  font-size: 25px;
+}
+
+input[type=number] {
+  text-align: center;
+  width: 70px;
+  height: 30px;
+  color: red;
+  font-size: 25px;
+}
+
+select {
+  width: 70px;
+  height: 30px;
+  text-align-last: center;
+  color: red;
+  font-size: 25px;
+}
+
+.info-select {
+  width: 120px;
+  color: black;
+  font-size: 20px;
+}
+
+.btns,
+.call {
+  text-align: center;
+}
+
+input[type=reset], input[type=button] {
+  width: 150px;
+  height: 40px;
+  font-size: 25px;
+  border-radius: 20px;
+  border: none;
+  margin: 0 25px;
+  cursor: pointer;
+  color: white;
+}
+
+input[type=reset] {
+  background-color: red;
+}
+
+input[type=reset]:hover {
+  background-color: white;
+  color: red;
+}
+
+input[type=reset]:active {
+  transform: scale(0.95);
+}
+
+input[type=button] {
+  background-color: #66ff00;
+}
+
+input[type=button]:hover {
+  background-color: white;
+  color:#66ff00;
+}
+
+input[type=button]:active {
+  transform: scale(0.95);
+}
+
+.call {
+  font-size: 20px;
+}
+
+p {
+  padding: 0 30px;
+  margin-top: 0;
+}
+
+@media (orientation: portrait) {
+	body{
+    margin: 0 0.2rem;
+  }
+}
