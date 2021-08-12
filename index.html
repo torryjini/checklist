@@ -35,11 +35,11 @@
         </select>
       </td>
       <td>
-        <select class="info-select">
-          <option value="">--</option>
-          <option value="">전공심화</option>
-          <option value="">복수전공</option>
-          <option value="">설계전공</option>
+        <select class="info-select" id="multi-major">
+          <option value="0">--</option>
+          <option value="66">전공심화</option>
+          <option value="45">복수전공</option>
+          <option value="45">설계전공</option>
         </select>
       </td>
     </tr>
@@ -175,7 +175,7 @@
       <tr>
         <th>전공기초</th>
         <td>
-          <input type="text" value="10" readonly>
+          <input type="text" value="10" id="base-st" readonly>
         </td>
         <td colspan="3">
           <input type="number" value="" id="base" placeholder="0" min="0"><label for="base"> 학점</label>
@@ -184,7 +184,7 @@
       <tr>
         <th>전공필수</th>
         <td>
-          <input type="text" value="9" readonly>
+          <input type="text" value="9" id="nece-st" readonly>
         </td>
         <td colspan="3">
           <input type="number" value="" id="nece" placeholder="0" min="0"><label for="nece"> 학점</label>
@@ -193,7 +193,7 @@
       <tr>
         <th>전공</th>
         <td>
-          <input type="text" value="66" readonly><br>
+          <input type="text" value="66" id="major-st" readonly><br>
           <span>(전필포함)</span>
         </td>
         <td colspan="3">
@@ -203,23 +203,23 @@
       <tr>
         <th>복수전공</th>
         <td>
-          <input type="text" value="45" readonly>
+          <input type="text" value="45" id="double-st" readonly>
         </td>
         <td colspan="3">
           <input type="number" value="" id="double" placeholder="0" min="0"><label for="double"> 학점</label>
           <br>
-          <input type="checkbox" value="" id="double-none"><label for="double-none"> 해당없음</label>
+          <input type="checkbox" id="double-none"><label for="double-none"> 해당없음</label>
         </td>
       </tr>
       <tr>
         <th>설계전공</th>
         <td>
-          <input type="text" value="36" readonly>
+          <input type="text" value="36" id="plan-st" readonly>
         </td>
         <td>
           <input type="number" value="" id="plan" placeholder="0" min="0"><label for="plan"> 학점</label>
           <br>
-          <input type="checkbox" value="" id="plan-none"><label for="plan-none"> 해당없음</label>
+          <input type="checkbox" id="plan-none"><label for="plan-none"> 해당없음</label>
         </td>
         <th>교차<br>인정</th>
         <td>
@@ -229,18 +229,18 @@
       <tr>
         <th>부전공</th>
         <td>
-          <input type="text" value="21" readonly>
+          <input type="text" value="21" id="minor-st" readonly>
         </td>
         <td colspan="3">
           <input type="number" value="" id="minor" placeholder="0" min="0"><label for="minor"> 학점</label>
           <br>
-          <input type="checkbox" value="" id="minor-none"><label for="minor-none"> 해당없음</label>
+          <input type="checkbox" id="minor-none"><label for="minor-none"> 해당없음</label>
         </td>
       </tr>
       <tr>
         <th>자유선택</th>
         <td>
-          <input type="text" value="0" readonly>
+          <input type="text" value="1" id="free-st" readonly>
         </td>
         <td colspan="3">
           <input type="number" value="" id="free" placeholder="0" min="0"><label for="free"> 학점</label>
@@ -249,18 +249,18 @@
       <tr>
         <th>교직</th>
         <td>
-          <input type="text" value="21" readonly>
+          <input type="text" value="21" id="teach-st" readonly>
         </td>
         <td colspan="3">
           <input type="number" value="" id="teach" placeholder="0" min="0"><label for="teach"> 학점</label>
           <br>
-          <input type="checkbox" value="" id="teach-none"><label for="teach-none"> 해당없음</label>
+          <input type="checkbox" id="teach-none"><label for="teach-none"> 해당없음</label>
         </td>
       </tr>
       <tr>
         <th>총 이수학점</th>
         <td>
-          <input type="text" value="132" readonly>
+          <input type="text" value="132" id="total-st" readonly>
         </td>
         <td colspan="3">
           <input type="text" id="total" value="0" style="color:red;" readonly><label for="total"> 학점</label>
@@ -271,8 +271,8 @@
   <br>
   <p>체크리스트 사용 후 정확한 졸업사정 결과를 확인하기 위해 반드시 아래 번호로 학과에 연락하여 확인하시기 바랍니다!</p>
   <div class="btns">
-    <input type="reset" name="" value="RESET">
-    <input type="button" name="" value="CHECK">
+    <input type="reset" value="RESET" id="major-reset">
+    <input type="button" value="CHECK" id="major-check">
   </div>
   <br>
   <br>
@@ -327,7 +327,7 @@
   </form>
   <br>
   <div class="btns">
-    <input type="reset" value="RESET">
+    <input type="reset" value="RESET" id="etc-reset">
     <input type="button" value="CHECK" id="etc-check">
   </div>
   <script src="app.js"></script>
