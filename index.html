@@ -35,12 +35,14 @@
         </select>
       </td>
       <td>
-        <select class="info-select" id="multi-major">
-          <option value="0">--</option>
-          <option value="66">전공심화</option>
-          <option value="45">복수전공</option>
-          <option value="45">설계전공</option>
-        </select>
+        <form id="multi-major-form">
+          <select class="info-select" id="multi-major">
+            <option value="0">--</option>
+            <option value="66">전공심화</option>
+            <option value="45">복수전공</option>
+            <option value="45">설계전공</option>
+          </select>
+        </form>
       </td>
     </tr>
   </table>
@@ -132,7 +134,7 @@
       </tr>
       <tr>
         <th colspan="2">선택교양</th>
-        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" value="0" id="choice-st" readonly></td>
         <td></td>
         <td colspan="2">
           <input type="number" value="" id="choice" placeholder="0" min="0"><label for="choice"> 학점</label>
@@ -200,7 +202,7 @@
           <input type="number" value="" id="major" placeholder="0" min="0"><label for="major"> 학점</label>
         </td>
       </tr>
-      <tr>
+      <tr id="double-table" style="display:none">
         <th>복수전공</th>
         <td>
           <input type="text" value="45" id="double-st" readonly>
@@ -208,10 +210,10 @@
         <td colspan="3">
           <input type="number" value="" id="double" placeholder="0" min="0"><label for="double"> 학점</label>
           <br>
-          <input type="checkbox" id="double-none"><label for="double-none"> 해당없음</label>
+          <input type="checkbox" id="double-none" hidden>
         </td>
       </tr>
-      <tr>
+      <tr id="plan-table" style="display:none">
         <th>설계전공</th>
         <td>
           <input type="text" value="36" id="plan-st" readonly>
@@ -219,7 +221,7 @@
         <td>
           <input type="number" value="" id="plan" placeholder="0" min="0"><label for="plan"> 학점</label>
           <br>
-          <input type="checkbox" id="plan-none"><label for="plan-none"> 해당없음</label>
+          <input type="checkbox" id="plan-none" hidden>
         </td>
         <th>교차<br>인정</th>
         <td>
@@ -321,7 +323,7 @@
         <td>
           <input type="number" id="gpa" placeholder="0.00" min="0" max="4.5" step="0.01"><label for="gpa">/4.5</label>
         </td>
-        <td>평점기준</td>
+        <td>전 학년 평점 2.0 미만은 졸업불가</td>
       </tr>
     </table>
   </form>
