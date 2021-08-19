@@ -53,21 +53,19 @@ const etcReset = document.getElementById("etc-reset");
 function libResult() {
   if(Number(year.value) === 0){
     year.scrollIntoView();
-    return alert("입학연도를 선택하세요!");
+    return swal("입학연도를 선택하세요!", "", "error");
   } else {
     libCal();
   }
 }
 
 function libCal() {
-  let result = "교양영역 결과\n";
+  let result = "입학연도 : " + Number(year.value) + " 년도\n공통교양\n"
   const core1 = document.getElementById("core1").checked;
   const core2 = document.getElementById("core2").checked;
   const core3 = document.getElementById("core3").checked;
   const core4 = document.getElementById("core4").checked;
   const core5 = document.getElementById("core5").checked;
-
-  result += "입학연도 : " + Number(year.value) + " 년도\n공통교양\n"
 
   if (Number(korSt.value) > Number(korCrts.value)) {
     result += "- 국어 : " + [Number(korSt.value) - Number(korCrts.value)] + " 학점 미달\n"
@@ -122,7 +120,26 @@ function libCal() {
   } else {
     result += "교양합계 : 기준 통과"
   }
-  alert(result);
+
+  if (Number(korSt.value) <= Number(korCrts.value)
+   && Number(engSt.value) <= Number(engCrts.value)
+   && Number(etcSt.value) <= Number(etcCrts.value)
+   && Number(coreSt.value) <= Number(coreCrts.value)
+   && core1 && core2 && core3 && core4 && core5
+   && Number(sumSt.value) <= Number(sumCrts.value)
+   && Number(sumCrts.value) <= 45) {
+    swal("교양영역 결과", result, "success");
+  } else if (Number(korSt.value) <= Number(korCrts.value)
+   && Number(engSt.value) <= Number(engCrts.value)
+   && Number(etcSt.value) <= Number(etcCrts.value)
+   && Number(coreSt.value) <= Number(coreCrts.value)
+   && core1 && core2 && core3 && core4 && core5
+   && Number(sumSt.value) <= Number(sumCrts.value)
+   && Number(sumCrts.value) > 45) {
+    swal("교양영역 결과", result, "warning");
+  } else {
+    swal("교양영역 결과", result, "error");
+  }
 }
 
 function sumCal() {
@@ -156,24 +173,30 @@ etcReset.addEventListener("click", function() {
   resetor(etcForm);
 })
 
+function majorTableReset() {
+  document.getElementById("double-table").style.display = "none";
+  document.getElementById("plan-table").style.display = "none";
+}
+
+majorReset.addEventListener("click", majorTableReset);
+
 function majorResult() {
   if(Number(year.value) === 0){
     year.scrollIntoView();
-    return alert("입학연도를 선택하세요!");
+    return swal("입학연도를 선택하세요!", "", "error");
   } else if(Number(multiMajor.value) === 0) {
     year.scrollIntoView();
-    return alert("다전공을 선택하세요!");
+    return swal("다전공을 선택하세요!", "", "error");
   } else if (Number(planCross.value) > 6) {
     planCross.scrollIntoView();
-    return alert("설계전공 교차인정 최대학점은 6학점입니다!")
+    return swal("설계전공 교차인정 최대학점은 6학점입니다!", "", "error")
   } else {
     majorCal();
   }
 }
 
 function majorCal() {
-  let result = "전공영역 결과\n"
-  result += "입학연도 : " + Number(year.value) + " 년도\n"
+  let result = "입학연도 : " + Number(year.value) + " 년도\n"
 
   if (Number(baseSt.value) > Number(base.value)) {
     result += "전공기초 : " + [Number(baseSt.value) - Number(base.value)] + " 학점 미달\n"
@@ -237,7 +260,7 @@ function majorCal() {
     result += "총 이수학점 : 기준 통과"
   }
 
-  alert(result);
+  swal("전공영역 결과", result, "success");
 }
 
 majorCheck.addEventListener("click", majorResult);
@@ -272,7 +295,7 @@ function etcResult() {
   const douPaper = document.getElementById("double-paper").checked;
   const gpa = Number(document.getElementById("gpa").value);
 
-  let etcResult = "기타 졸업요건 결과\n졸업인정제\n"
+  let etcResult = "졸업인정제\n"
 
   if (!engExam) {
     etcResult += "- 영어 : 미통과\n"
@@ -312,7 +335,7 @@ function etcResult() {
     etcResult += "전 학년 평점 : 기준 통과"
   }
 
-  alert(etcResult);
+  swal("기타 졸업요건 결과", etcResult, "success");
 }
 
 etcCheck.addEventListener("click", etcResult);
@@ -473,4 +496,11 @@ function multiMajorChange() {
   }
 }
 
-multiMajor.addEventListener("change", multiMajorChange)
+multiMajor.addEventListener("change", multiMajorChange);
+
+const aboutBtn = document.getElementById("about")
+function aboutInfo() {
+  swal("개발자 정보", "Code by Thingcol\nE-mail : torryjini@naver.com", "info");
+}
+
+aboutBtn.addEventListener("click", aboutInfo);
