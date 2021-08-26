@@ -51,7 +51,7 @@ const etcCheck = document.getElementById("etc-check");
 const etcReset = document.getElementById("etc-reset");
 
 function libResult() {
-  if(Number(year.value) === 0){
+  if (Number(year.value) === 0) {
     year.scrollIntoView();
     return swal("입학연도를 선택하세요!", "", "error");
   } else {
@@ -91,7 +91,7 @@ function libCal() {
     result += "핵심교양 : 최소 학점 기준 통과_이수 영역 확인!\n- 미이수 영역 : "
   }
 
-  if(!core1){
+  if (!core1) {
     result += "도전 "
   }
 
@@ -107,7 +107,7 @@ function libCal() {
     result += "신뢰 "
   }
 
-  if(!core5) {
+  if (!core5) {
     result += "소통"
   }
 
@@ -121,30 +121,29 @@ function libCal() {
     result += "교양합계 : 기준 통과"
   }
 
-  if (Number(korSt.value) <= Number(korCrts.value)
-   && Number(engSt.value) <= Number(engCrts.value)
-   && Number(etcSt.value) <= Number(etcCrts.value)
-   && Number(coreSt.value) <= Number(coreCrts.value)
-   && core1 && core2 && core3 && core4 && core5
-   && Number(sumSt.value) <= Number(sumCrts.value)
-   && Number(sumCrts.value) <= 45) {
-    swal("교양영역 결과", result, "success");
-  } else if (Number(korSt.value) <= Number(korCrts.value)
-   && Number(engSt.value) <= Number(engCrts.value)
-   && Number(etcSt.value) <= Number(etcCrts.value)
-   && Number(coreSt.value) <= Number(coreCrts.value)
-   && core1 && core2 && core3 && core4 && core5
-   && Number(sumSt.value) <= Number(sumCrts.value)
-   && Number(sumCrts.value) > 45) {
-    swal("교양영역 결과", result, "warning");
+  if (Number(korSt.value) <= Number(korCrts.value) &&
+    Number(engSt.value) <= Number(engCrts.value) &&
+    Number(etcSt.value) <= Number(etcCrts.value) &&
+    Number(coreSt.value) <= Number(coreCrts.value) &&
+    core1 && core2 && core3 && core4 && core5 &&
+    Number(sumSt.value) <= Number(sumCrts.value) &&
+    Number(sumCrts.value) <= 45) {
+    return swal("교양영역 결과", result, "success");
+  } else if (Number(korSt.value) <= Number(korCrts.value) &&
+    Number(engSt.value) <= Number(engCrts.value) &&
+    Number(etcSt.value) <= Number(etcCrts.value) &&
+    Number(coreSt.value) <= Number(coreCrts.value) &&
+    core1 && core2 && core3 && core4 && core5 &&
+    Number(sumSt.value) <= Number(sumCrts.value) &&
+    Number(sumCrts.value) > 45) {
+    return swal("교양영역 결과", result, "warning");
   } else {
-    swal("교양영역 결과", result, "error");
+    return swal("교양영역 결과", result, "error");
   }
 }
 
 function sumCal() {
-  sumCrts.value
-   = Number(korCrts.value) + Number(engCrts.value) + Number(etcCrts.value) + Number(coreCrts.value) + Number(choice.value);
+  sumCrts.value = Number(korCrts.value) + Number(engCrts.value) + Number(etcCrts.value) + Number(coreCrts.value) + Number(choice.value);
 }
 
 korCrts.addEventListener("change", sumCal);
@@ -181,10 +180,10 @@ function majorTableReset() {
 majorReset.addEventListener("click", majorTableReset);
 
 function majorResult() {
-  if(Number(year.value) === 0){
+  if (Number(year.value) === 0) {
     year.scrollIntoView();
     return swal("입학연도를 선택하세요!", "", "error");
-  } else if(Number(multiMajor.value) === 0) {
+  } else if (Number(multiMajor.value) === 0) {
     year.scrollIntoView();
     return swal("다전공을 선택하세요!", "", "error");
   } else if (Number(planCross.value) > 6) {
@@ -260,7 +259,83 @@ function majorCal() {
     result += "총 이수학점 : 기준 통과"
   }
 
-  swal("전공영역 결과", result, "success");
+  if (Number(baseSt.value) <= Number(base.value) &&
+    Number(neceSt.value) <= Number(nece.value) &&
+    Number(majorSt.value) <= Number(major.value) &&
+    Number(freeSt.value) <= Number(free.value) &&
+    Number(totalSt.value) <= Number(total.value)) {
+    if (minorNone.checked && teachNone.checked) {
+      if (Number(majorSt.value) === 66) {
+        return swal("전공영역 결과", result, "success");
+      } else if (!doubleNone.checked) {
+        if (Number(doubleSt.value) <= Number(double.value)) {
+          return swal("전공영역 결과", result, "success");
+        } else {
+          return swal("전공영역 결과", result, "error");
+        }
+      } else if (!planNone.checked) {
+        if (Number(planSt.value) <= [Number(plan.value) + Number(planCross.value)]) {
+          return swal("전공영역 결과", result, "success");
+        } else {
+          return swal("전공영역 결과", result, "error");
+        }
+      }
+    } else if (Number(minor.value) >= 21 && teachNone.checked) {
+        if (Number(majorSt.value) === 66) {
+          return swal("전공영역 결과", result, "success");
+        } else if (!doubleNone.checked) {
+          if (Number(doubleSt.value) <= Number(double.value)) {
+            return swal("전공영역 결과", result, "success");
+          } else {
+            return swal("전공영역 결과", result, "error");
+          }
+        } else if (!planNone.checked) {
+          if (Number(planSt.value) <= [Number(plan.value) + Number(planCross.value)]) {
+            return swal("전공영역 결과", result, "success");
+          } else {
+            return swal("전공영역 결과", result, "error");
+          }
+        }
+      } else if (minorNone.checked && Number(teach.value) >= 21) {
+        if (Number(majorSt.value) === 66) {
+          return swal("전공영역 결과", result, "success");
+        } else if (!doubleNone.checked) {
+          if (Number(doubleSt.value) <= Number(double.value)) {
+            return swal("전공영역 결과", result, "success");
+          } else {
+            return swal("전공영역 결과", result, "error");
+          }
+        } else if (!planNone.checked) {
+          if (Number(planSt.value) <= [Number(plan.value) + Number(planCross.value)]) {
+            return swal("전공영역 결과", result, "success");
+          } else {
+            return swal("전공영역 결과", result, "error");
+          }
+        }
+      } else if (Number(minor.value) >= 21 && Number(teach.value) >= 21) {
+        if (Number(majorSt.value) === 66) {
+          return swal("전공영역 결과", result, "success");
+        } else if (!doubleNone.checked) {
+          if (Number(doubleSt.value) <= Number(double.value)) {
+            return swal("전공영역 결과", result, "success");
+          } else {
+            return swal("전공영역 결과", result, "error");
+          }
+        } else if (!planNone.checked) {
+          if (Number(planSt.value) <= [Number(plan.value) + Number(planCross.value)]) {
+            return swal("전공영역 결과", result, "success");
+          } else {
+            return swal("전공영역 결과", result, "error");
+          }
+        } else {
+          return swal("전공영역 결과", result, "error");
+        }
+      } else {
+        return swal("전공영역 결과", result, "error");
+      }
+    } else {
+      return swal("전공영역 결과", result, "error");
+    }
 }
 
 majorCheck.addEventListener("click", majorResult);
@@ -268,14 +343,14 @@ majorCheck.addEventListener("click", majorResult);
 function totalCal() {
   if (Number(sumCrts.value) > 45) {
     total.value =
-    45 + Number(base.value) + Number(major.value)
-    + Number(double.value) + Number(plan.value) + Number(minor.value)
-    + Number(free.value) + Number(teach.value)
+      45 + Number(base.value) + Number(major.value) +
+      Number(double.value) + Number(plan.value) + Number(minor.value) +
+      Number(free.value) + Number(teach.value)
   } else {
     total.value =
-    Number(sumCrts.value) + Number(base.value) + Number(major.value)
-    + Number(double.value) + Number(plan.value) + Number(minor.value)
-    + Number(free.value) + Number(teach.value)
+      Number(sumCrts.value) + Number(base.value) + Number(major.value) +
+      Number(double.value) + Number(plan.value) + Number(minor.value) +
+      Number(free.value) + Number(teach.value)
   }
 }
 
@@ -335,7 +410,13 @@ function etcResult() {
     etcResult += "전 학년 평점 : 기준 통과"
   }
 
-  swal("기타 졸업요건 결과", etcResult, "success");
+  if (engExam && korExam && chiExam && paper && douPaper && gpa >= 2) {
+    return swal("기타 졸업요건 결과", etcResult, "success");
+  } else if (gpa >= 2) {
+    return swal("기타 졸업요건 결과", etcResult, "warning");
+  } else {
+    return swal("기타 졸업요건 결과", etcResult, "error");
+  }
 }
 
 etcCheck.addEventListener("click", etcResult);
@@ -444,7 +525,7 @@ gpa.addEventListener("change", gpaColorChange);
 function noneHandler(none, crts) {
   if (none.checked) {
     crts.readOnly = true;
-    crts.value = 0;
+    crts.value = "";
   } else {
     crts.readOnly = false;
   }
@@ -471,27 +552,27 @@ function multiMajorChange() {
     planTable.style.display = "none";
   } else if (multiMajorText === "전공심화") {
     doubleTable.style.display = "none";
-    double.value = 0;
+    double.value = "";
     doubleNone.checked = true;
 
     planTable.style.display = "none";
-    plan.value = 0;
+    plan.value = "";
     planNone.checked = true;
   } else if (multiMajorText === "복수전공") {
     doubleTable.style.display = "";
-    double.value = 0;
+    double.value = "";
     doubleNone.checked = false;
 
     planTable.style.display = "none";
-    plan.value = 0;
+    plan.value = "";
     planNone.checked = true;
   } else if (multiMajorText === "설계전공") {
     doubleTable.style.display = "none";
-    double.value = 0;
+    double.value = "";
     doubleNone.checked = true;
 
     planTable.style.display = "";
-    plan.value = 0;
+    plan.value = "";
     planNone.checked = false;
   }
 }
@@ -499,6 +580,7 @@ function multiMajorChange() {
 multiMajor.addEventListener("change", multiMajorChange);
 
 const aboutBtn = document.getElementById("about")
+
 function aboutInfo() {
   swal("개발자 정보", "Code by Thingcol\nE-mail : torryjini@naver.com", "info");
 }
